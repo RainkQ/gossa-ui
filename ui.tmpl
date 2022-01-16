@@ -54,7 +54,11 @@
     </div>
 
     <div id="pics" style="display:none;"> <img draggable="false" onclick="window.picsNav()" id="picsHolder" /></div>
-    <div id="video" style="display:none;"> <video controls id="videoHolder"></video></div>
+    <div id="video" style="display:none;"> 
+        <video controls id="videoHolder">
+            <track id="videoHolderSubTitles" label="字幕" kind="subtitles" chapters metadata srclang="zh" default>
+        </video>
+    </div>
 
     <table id="linkTable">
     {{range .RowsFolders}}

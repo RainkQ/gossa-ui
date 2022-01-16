@@ -18,6 +18,7 @@ const pics = document.getElementById('pics')
 const picsHolder = document.getElementById('picsHolder')
 const video = document.getElementById('video')
 const videoHolder = document.getElementById('videoHolder')
+const videoHolderSubTitles = document.getElementById('videoHolderSubTitles')
 const manualUpload = document.getElementById('clickupload')
 const help = document.getElementById('help')
 const okBadge = document.getElementById('ok')
@@ -587,6 +588,8 @@ async function videoOn (src) {
   videoHolder.currentTime = parseInt(time) || 0
 
   videoHolder.src = src
+  let subTitleSrc = src.toLowerCase().split("/").pop().split(".")[0] + '.srt'
+  videoHolderSubTitles.src = subTitleSrc
   pushSoftState(decodeURI(name))
   return true
 }
