@@ -18,6 +18,7 @@ const pics = document.getElementById('pics')
 const picsHolder = document.getElementById('picsHolder')
 const video = document.getElementById('video')
 const videoHolder = document.getElementById('videoHolder')
+const videoHolderSrc = document.getElementById('videoHolderSrc')
 const videoHolderSubTitles = document.getElementById('videoHolderSubTitles')
 const manualUpload = document.getElementById('clickupload')
 const help = document.getElementById('help')
@@ -587,9 +588,8 @@ async function videoOn (src) {
   const time = localStorage.getItem('video-time' + src)
   videoHolder.currentTime = parseInt(time) || 0
 
-  videoHolder.src = src
-  let subTitleSrc = src.toLowerCase().split("/").pop().split(".")[0] + '.srt'
-  videoHolderSubTitles.src = subTitleSrc
+  videoHolderSrc.src = src
+  videoHolderSubTitles.src = src.replace('.mp4', '.srt')
   pushSoftState(decodeURI(name))
   return true
 }
