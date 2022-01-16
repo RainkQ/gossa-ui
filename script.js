@@ -588,8 +588,9 @@ async function videoOn (src) {
   const time = localStorage.getItem('video-time' + src)
   videoHolder.currentTime = parseInt(time) || 0
 
+  videoHolder.src = src
   videoHolderSrc.src = src
-  videoHolderSubTitles.src = src.replace('.mp4', '.srt')
+  videoHolderSubTitles.src = src.replace('.mp4', '.vtt')
   pushSoftState(decodeURI(name))
   return true
 }
